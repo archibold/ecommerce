@@ -46,7 +46,7 @@ class FetchingExample extends Component {
     const { selectedProduct, token } = this.state;
     this.setState({
       transactionAccepted: false,
-      transactionError: result.error.error_description
+      transactionError: false
     });
 
     onBuyProduct(customer, selectedProduct, token)
