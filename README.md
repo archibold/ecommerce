@@ -2,15 +2,8 @@
 
 ## What's included
 
-- `FetchingExample` on how to fetch data from firebase.
-
-  Note: For better experiece you might want to integrate it [redux](https://redux.js.org) or [mobx](http://mobx.js.org).
-
-  If you need it, submit an issue. I can create a starter / example repo with firebase + mobx or redux.
-  
-  **Update**: I made a another starter [gatsby-starter-redux-firebase](https://github.com/muhajirframe/gatsby-starter-redux-firebase)
-
-- Authentication with [react-firebaseui](https://github.com/firebase/firebaseui-web-react) (`SignIn`, `SignOut`)
+- Firebase (Firebase function in: <URL>)
+- Paylane creditcard support
 
 ## Getting Started
 
@@ -23,14 +16,26 @@ npm install --global gatsby-cli
 Create new Gatsby project using this starter:
 
 ```sh
-gatsby new my-new-website https://github.com/muhajirframe/gatsby-starter-firebase
+gatsby new my-new-ecommerce https://github.com/archibold/ecommerce
 ```
 
 ```sh
 cd my-new-website
 ```
 
-## Usage
+## environment variables
+.env.development
+
+```
+FB_API_KEY=
+FB_AUTH_DOMAIN=
+FB_DATABASE_URL=
+FB_PROJECT_ID=
+FB_STORAGE_BUCKET=
+FB_MESSAGING_SENDER_ID=
+FB_FUNCTION_URL=
+
+```
 
 ### Develop
 

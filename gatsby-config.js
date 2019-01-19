@@ -1,6 +1,10 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby starter Firebase',
+    title: 'ecommerce',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -16,11 +20,11 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
-    // 'gatsby-plugin-layout'
+    'gatsby-plugin-layout'
     // 'gatsby-plugin-offline',
   ],
   proxy: {
-    prefix: '/rest.js/cards',
-    url: 'https://direct.paylane.com'
+    prefix: '/api',
+    url: process.env.API_URL
   }
 }

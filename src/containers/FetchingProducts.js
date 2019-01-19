@@ -3,7 +3,8 @@ import Product from '../components/product';
 import '../service/buy-service';
 import CreditCard from '../components/creditcard';
 import Customer from '../components/customer';
-import { checkCard, onBuyProduct, getProducts } from '../service/buy-service';
+import { checkCard, onBuyProduct } from '../service/buy-service';
+import { withFirebase } from '../components/FirebaseContext'
 
 class FetchingExample extends Component {
   state = {
@@ -17,12 +18,16 @@ class FetchingExample extends Component {
   }
 
   componentDidMount() {
-    getProducts()
-    .then(result => {
-      this.setState({
-        products: result,
+    const { firebase } = this.props
+    firebase
+      .database()
+      .ref('/products')
+      .once('value')
+      .then(snapshot => {
+        this.setState({
+          products: snapshot.val(),
+        })
       })
-    });
   }
 
   onSelectProduct = (product) => {
@@ -96,4 +101,4 @@ class FetchingExample extends Component {
   }
 }
 
-export default FetchingExample
+export default withFirebase(FetchingExample)
