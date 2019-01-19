@@ -1,40 +1,29 @@
-# Gatsby Starter Firebase
+# Gatsby Ecommerce Firebase
 
 ## What's included
 
-- Firebase (Firebase function in: <URL>)
-- Paylane creditcard support
-
-## Getting Started
-
-Install Gatsby CLI:
-
-```sh
-npm install --global gatsby-cli
-```
-
-Create new Gatsby project using this starter:
-
-```sh
-gatsby new my-new-ecommerce https://github.com/archibold/ecommerce
-```
-
-```sh
-cd my-new-website
-```
+- Firebase
+- API for this ecommerce you can find here: https://github.com/archibold/ecommerce-api
 
 ## environment variables
-.env.development
+use `.env.development` for set development environment variable or `.env.production` for production.
+
+set a firebase and API url
 
 ```
-FB_API_KEY=
-FB_AUTH_DOMAIN=
-FB_DATABASE_URL=
-FB_PROJECT_ID=
-FB_STORAGE_BUCKET=
-FB_MESSAGING_SENDER_ID=
-FB_FUNCTION_URL=
-
+GATSBY_FB_API_KEY=
+GATSBY_FB_AUTH_DOMAIN=
+GATSBY_FB_DATABASE_URL=
+GATSBY_FB_PROJECT_ID=
+GATSBY_FB_STORAGE_BUCKET=
+GATSBY_FB_MESSAGING_SENDER_ID=
+GATSBY_FB_FUNCTION_URL=
+API_URL=
+```
+for production, you have to set also
+```
+GATSBY_API_URL=
+GATSBY_NODE_ENV=production
 ```
 
 ### Develop
@@ -51,15 +40,9 @@ npm run build
 
 Your built file will be in `/public`
 
-## Contributing
 
-Do not hesitate to:
+### Deploy
 
-- [Submit an idea or question](https://github.com/muhajirframe/gatsby-starter-firebase/issues/new)
-- Make a pull request
-
-## Showcase
-
-Have a site made with this starter? Please submit an issue or PR
+Use Github to share you code and Netlify for deploying
 
 **Enjoy!**
