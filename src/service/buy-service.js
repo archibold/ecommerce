@@ -14,6 +14,7 @@ export const checkCard = (creditcard) => {
 
 export const onBuyProduct = (customer, product, token) => {
   const saleInfo = {
+    productId: product.id,
     customer: {
       ip: '0.0.0.0',
       ...customer
