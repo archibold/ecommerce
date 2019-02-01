@@ -1,21 +1,28 @@
 body {
   font-family: sans-serif;
+  margin: 0;
 }
 
 .container {
+  height: 100vh;
+  margin: 0;
   display: flex;
 }
 
-  .container .products {
-    flex: 1;
+.container .products {
+  flex: 1;
+  display: flex;
+  max-width: 1240px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  height: 100%;
+}
 
-
-  }
-
-  .container .creditcard {
-    flex: 1;
-    margin: 10px;
-  }
+.container .creditcard {
+  margin: 10px;
+  width: 250px;
+  display: none;
+}
 
 .creditcardcomponent {
   padding: 10px;
@@ -25,6 +32,13 @@ body {
   padding: 10px;
   background: #c8bcd41a;
   margin: 10px;
+  width: calc(50% - 40px);
+}
+
+@media only screen and (max-width: 600px) {
+  .productcomponent {
+    width: 100%;
+  }
 }
 
 .is-selected {
@@ -35,16 +49,16 @@ body {
   background: white;
 }
 
-  .input p {
-    margin-bottom: 0;
-  }
+.input p {
+  margin-bottom: 0;
+}
 
-  .input input {
-    outline: none;
-    border: 0;
-    border-bottom: 1px solid gray;
-    font-size: 20px;
-  }
+.input input {
+  outline: none;
+  border: 0;
+  border-bottom: 1px solid gray;
+  font-size: 20px;
+}
 
 .button button {
   width: 100%;
@@ -52,10 +66,6 @@ body {
   margin: 10px auto;
   font-size: 15px;
   height: 25px;
-}
-
-.select {
-
 }
 
 .error {

@@ -1,29 +1,27 @@
-import React, {Component} from 'react';
-import {Link} from 'gatsby';
-import Input from './input';
-import Button from './button';
-import './styles.css';
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
+import Input from './input'
+import Button from './button'
+import './styles.css'
 
 class CreditCard extends Component {
   state = {
-    card_number: "",
-    expiration_month: "",
-    expiration_year: "",
-    name_on_card: "",
-    card_code: "",
+    card_number: '',
+    expiration_month: '',
+    expiration_year: '',
+    name_on_card: '',
+    card_code: '',
   }
 
   onChange = (input, value) => {
     this.setState({
-      [input]: value
-    });
+      [input]: value,
+    })
   }
 
   onCheck = () => {
-    const {
-      onCardCheck
-    } = this.props;
-    onCardCheck(this.state);
+    const { onCardCheck } = this.props
+    onCardCheck(this.state)
   }
 
   render() {
@@ -33,25 +31,39 @@ class CreditCard extends Component {
       expiration_year,
       name_on_card,
       card_code,
-    } = this.state;
+    } = this.state
 
-    const {
-      errorMessage
-    } = this.props;
+    const { errorMessage } = this.props
 
-    const {
-      onChange,
-      onCheck
-    } = this;
-
+    const { onChange, onCheck } = this
 
     return (
       <div className="creditcardcomponent">
-        <Input label="Card Number" value={card_number} onChange={(value) => onChange("card_number", value)}/>
-        <Input label="Expiration month" value={expiration_month} onChange={(value) => onChange("expiration_month", value)}/>
-        <Input label="Expiration year" value={expiration_year} onChange={(value) => onChange("expiration_year", value)}/>
-        <Input label="Card Holder" value={name_on_card} onChange={(value) => onChange("name_on_card", value)}/>
-        <Input label="CVV" value={card_code} onChange={(value) => onChange("card_code", value)}/>
+        <Input
+          label="Card Number"
+          value={card_number}
+          onChange={value => onChange('card_number', value)}
+        />
+        <Input
+          label="Expiration month"
+          value={expiration_month}
+          onChange={value => onChange('expiration_month', value)}
+        />
+        <Input
+          label="Expiration year"
+          value={expiration_year}
+          onChange={value => onChange('expiration_year', value)}
+        />
+        <Input
+          label="Card Holder"
+          value={name_on_card}
+          onChange={value => onChange('name_on_card', value)}
+        />
+        <Input
+          label="CVV"
+          value={card_code}
+          onChange={value => onChange('card_code', value)}
+        />
         {errorMessage && <p className="error">{errorMessage}</p>}
         <Button onClick={onCheck}>Continue</Button>
       </div>

@@ -30,7 +30,18 @@ export const onBuyProduct = (customer, product, token) => {
 
   return axios.post(url + '/api/saleByToken', saleInfo)
   .then(response => {
-    console.log(response.data)
     return response.data
   })
 }
+
+export const getProducts = () => {
+  return axios.get(url + '/api/products')
+  .then(response => {
+    return response.data;
+  })
+}
+
+// - [x] GET /api/products
+// - [ ] PUT /api/product
+// - [ ] POST /login
+// - [ ] POST /logout
