@@ -1,10 +1,21 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
+var proxy = require("http-proxy-middleware");
 
 module.exports = {
   siteMetadata: {
     title: 'ecommerce',
+  },
+  developMiddleware: app => {
+    app.use(
+      '/',
+      proxy({
+        target: process.env.API_URL || '/',
+        changeOrigin: true,
+        secure: false,
+      })
+    );
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -22,9 +33,5 @@ module.exports = {
     },
     'gatsby-plugin-layout'
     // 'gatsby-plugin-offline',
-  ],
-  proxy: {
-    prefix: '/api',
-    url: process.env.API_URL || '/'
-  }
+  ]
 }

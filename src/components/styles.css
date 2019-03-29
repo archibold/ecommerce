@@ -79,3 +79,17 @@ body {
 .error {
   color: #ca6262;
 }
+
+.tab-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 1240px;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  height: 100%;
+}
+
+  .tab-action {
+    margin-left: auto;
+  }

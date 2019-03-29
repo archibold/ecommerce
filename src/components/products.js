@@ -1,5 +1,5 @@
-import React from 'react'
-import Product from './product'
+import React from 'react';
+import Product from './product';
 
 const Products = ({ products, selectedProductId, onSelectProduct }) => products.map((product, index) => {
   return (
@@ -12,7 +12,7 @@ const Products = ({ products, selectedProductId, onSelectProduct }) => products.
       isSelected={selectedProductId === product.id}
       onSelect={() => onSelectProduct(product)}
     />
-  )
+);
 });
 
 export default Products;
