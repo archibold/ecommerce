@@ -25,6 +25,6 @@ module.exports = {
   ],
   proxy: {
     prefix: '/api',
-    url: process.env.API_URL || '/api'
+    url: process.env.API_URL || '/'
   }
 }

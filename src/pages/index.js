@@ -1,12 +1,14 @@
-import React from 'react'
-import { Link } from 'gatsby'
-
-import FetchingProducts from '../containers/FetchingProducts'
+import React from 'react';
+import { Link } from 'gatsby';
+import { ProductProvider } from '../contexts/ProductProvider';
+import FetchingProducts from '../containers/FetchingProducts';
 
 const IndexPage = () => (
   <div>
-    <FetchingProducts />
+    <ProductProvider>
+      <FetchingProducts />
+    </ProductProvider>
   </div>
-)
+);
 
-export default IndexPage
+export default IndexPage;

@@ -33,6 +33,14 @@ body {
   background: #c8bcd41a;
   margin: 10px;
   width: calc(50% - 40px);
+  height: calc(50% - 40px);
+}
+
+.productcomponent img {
+  max-width: 100%;
+  max-height: 70%;
+  display: block;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 600px) {

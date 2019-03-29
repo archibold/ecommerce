@@ -1,13 +1,14 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import Button from './button'
-import Input from './input'
-import './styles.css'
+import React from 'react';
+import { Link } from 'gatsby';
+import Button from './button';
+import Input from './input';
+import './styles.css';
 
 const Product = ({
   title,
   description,
   price,
+  image,
   isSelected,
   onSelect,
   onChange,
@@ -16,11 +17,10 @@ const Product = ({
     onClick={onSelect}
     className={isSelected ? 'productcomponent is-selected' : 'productcomponent'}
   >
-    <div> Image</div>
-    <h1>{title}</h1>
+    <img src={image} />
+    <h3>{title}</h3>
     <p>{description}</p>
-    <Input label={price + ' PLN'} onChange={onChange} />
   </div>
-)
+);
 
-export default Product
+export default Product;

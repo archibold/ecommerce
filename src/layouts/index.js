@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Layout extends Component {
   render = () => {
@@ -10,4 +10,4 @@ class Layout extends Component {
   }
 }
 
-export default Layout
+export default Layout;

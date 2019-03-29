@@ -11,13 +11,6 @@ use `.env.development` for set development environment variable or `.env.product
 set a firebase and API url
 
 ```
-GATSBY_FB_API_KEY=
-GATSBY_FB_AUTH_DOMAIN=
-GATSBY_FB_DATABASE_URL=
-GATSBY_FB_PROJECT_ID=
-GATSBY_FB_STORAGE_BUCKET=
-GATSBY_FB_MESSAGING_SENDER_ID=
-GATSBY_FB_FUNCTION_URL=
 API_URL=
 ```
 for production, you have to set also

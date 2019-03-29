@@ -1,112 +1,58 @@
-import React, { Component } from 'react'
-import Product from '../components/product'
-import '../service/buy-service'
-import CreditCard from '../components/creditcard'
-import Customer from '../components/customer'
-import { checkCard, onBuyProduct, getProducts } from '../service/buy-service'
+import React, { Component } from 'react';
+import Product from '../components/product';
+import CreditCard from '../components/creditcard';
+import Customer from '../components/customer';
+import Products from '../components/products';
+import { ProductContext } from '../contexts/ProductProvider';
 
 class FetchingExample extends Component {
   state = {
-    products: null,
-    ccError: null,
-    ccToken: null,
-    customerError: null,
-    selectedProduct: null,
-    transactionAccepted: false,
-    transactionError: null,
-  }
-
-  componentDidMount() {
-    getProducts().then(products => {
-      this.setState({
-        products: products,
-      })
-    });
+    selectedProduct: {},
   }
 
   onSelectProduct = product => {
-    this.setState({ selectedProduct: product })
-  }
-
-  onCardCheck = cc => {
-    this.setState({ ccError: null })
-
-    checkCard(cc).then(result => {
-      if (!result.success) {
-        this.setState({ ccError: result.error.error_description })
-      } else {
-        this.setState({ token: result.token })
-      }
-    })
-  }
-
-  onBuy = customer => {
-    const { selectedProduct, token } = this.state
-    this.setState({
-      transactionAccepted: false,
-      transactionError: false,
-    })
-
-    onBuyProduct(customer, selectedProduct, token).then(result => {
-      if (result.success) {
-        this.setState({ transactionAccepted: true })
-      } else {
-        this.setState({ transactionError: result.error.error_description })
-      }
-    })
+    this.setState({ selectedProduct: product });
   }
 
   render() {
     const {
-      products,
-      ccError,
-      customerError,
-      token,
       selectedProduct,
-      transactionAccepted,
-      transactionError,
-    } = this.state
-    const { onCardCheck, onBuy, onSelectProduct } = this
-
-    if (!products) {
-      return null
-    }
-
-    const productsComponet = products.map((product, index) => {
-      return (
-        <Product
-          key={index}
-          title={product.title}
-          description={product.description}
-          price={product.price}
-          isSelected={selectedProduct && selectedProduct.id === product.id}
-          onSelect={() => onSelectProduct(product)}
-        />
-      )
-    })
+    } = this.state;
 
     return (
-      <div className="container">
-        <div className="products">{productsComponet}</div>
-        {selectedProduct && (
-          <div className="creditcard">
-            <h1>{selectedProduct.title}</h1>
-
-            {!token && (
-              <CreditCard onCardCheck={onCardCheck} errorMessage={ccError} />
-            )}
-            {token && <Customer onBuy={onBuy} errorMessage={customerError} />}
-            {transactionAccepted && (
-              <div>
-                Congratulation! Transaction was accepted. Wait for an email.
+      <ProductContext.Consumer>
+        { context => {
+          return (
+            <div className="container">
+              <div className="products">
+                <Products
+                  products={context.products}
+                  selectedProductId={this.state.selectedProduct.id}
+                  onSelectProduct={(product) => this.onSelectProduct(product)} />
               </div>
-            )}
-            {transactionError && <div>{transactionError}</div>}
-          </div>
-        )}
-      </div>
+            </div>
+          );
+        }}
+      </ProductContext.Consumer>
     )
   }
 }
 
+// TODO: credit card
+// {selectedProduct && (
+//   <div className="creditcard">
+//     <h1>{selectedProduct.title}</h1>
+//
+//     {!context.isCardOK && (
+//       <CreditCard onCardCheck={context.onCardCheck} errorMessage={context.creditCardError} />
+//     )}
+//     {context.isCardOK && <Customer onBuy={context.onBuy} />}
+//     {context.isTransactionAccepted && (
+//       <div>
+//         Congratulation! Transaction was accepted. Wait for an email.
+//       </div>
+//     )}
+//     {context.transactionError && <div>{context.transactionError}</div>}
+//   </div>
+// )}
 export default FetchingExample

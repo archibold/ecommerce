@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'gatsby'
-import Input from './input'
-import Button from './button'
-import './styles.css'
+import React, { Component } from 'react';
+import { Link } from 'gatsby';
+import Input from './input';
+import Button from './button';
+import './styles.css';
 
 class CreditCard extends Component {
   state = {
@@ -16,12 +16,12 @@ class CreditCard extends Component {
   onChange = (input, value) => {
     this.setState({
       [input]: value,
-    })
+    });
   }
 
   onCheck = () => {
-    const { onCardCheck } = this.props
-    onCardCheck(this.state)
+    const { onCardCheck } = this.props;
+    onCardCheck(this.state);
   }
 
   render() {
@@ -31,11 +31,9 @@ class CreditCard extends Component {
       expiration_year,
       name_on_card,
       card_code,
-    } = this.state
-
-    const { errorMessage } = this.props
-
-    const { onChange, onCheck } = this
+    } = this.state;
+    const { errorMessage } = this.props;
+    const { onChange, onCheck } = this;
 
     return (
       <div className="creditcardcomponent">
@@ -71,4 +69,4 @@ class CreditCard extends Component {
   }
 }
 
-export default CreditCard
+export default CreditCard;

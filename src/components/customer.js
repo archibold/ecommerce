@@ -23,19 +23,12 @@ class Customer extends Component {
   }
 
   render() {
-    const {
-      email,
-    } = this.state;
-
-    const {
-      errorMessage,
-    } = this.props;
-
+    const { email } = this.state;
+    const { errorMessage } = this.props;
     const {
       onChange,
       onBuy
     } = this;
-
 
     return (
       <div>
@@ -43,7 +36,7 @@ class Customer extends Component {
         {errorMessage && <p className="error">{errorMessage}</p>}
         <Button onClick={onBuy}>Buy</Button>
       </div>
-    )
+    );
   }
 }
-export default Customer
+export default Customer;
