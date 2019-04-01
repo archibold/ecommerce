@@ -9,11 +9,7 @@ class Customer extends Component {
     email: "",
   }
 
-  onChange = (input, value) => {
-    this.setState({
-      [input]: value
-    });
-  }
+  onChange = (input, value) => this.setState({ [input]: value })
 
   onBuy = () => {
     const {
@@ -32,9 +28,9 @@ class Customer extends Component {
 
     return (
       <div>
-        <Input label="Email" value={email} onChange={(value) => onChange("email", value)}/>
-        {errorMessage && <p className="error">{errorMessage}</p>}
-        <Button onClick={onBuy}>Buy</Button>
+        <Input label="Email" value={ email } onChange={ (value) => onChange("email", value) }/>
+        { errorMessage && <p className="error">{ errorMessage }</p>}
+        <Button onClick={ onBuy }>Buy</Button>
       </div>
     );
   }

@@ -3,9 +3,9 @@ import fire from '../images/fire.svg';
 const Tab = ({ children }) => {
   return (
     <div className="tab-container">
-      <img src={fire} height={50}/> Shop
+      <img src={ fire } height={ 50 }/> Shop
         <div className="tab-action">
-          {children}
+          { children }
         </div>
     </div>
   );

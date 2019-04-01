@@ -26,9 +26,9 @@ class FetchingExample extends Component {
             <div className="container">
               <div className="products">
                 <Products
-                  products={context.products}
-                  selectedProductId={this.state.selectedProduct.id}
-                  onSelectProduct={(product) => this.onSelectProduct(product)} />
+                  products={ context.products }
+                  selectedProductId={ this.state.selectedProduct.id }
+                  onSelectProduct={ (product) => this.onSelectProduct(product) } />
               </div>
             </div>
           );

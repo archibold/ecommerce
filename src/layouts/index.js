@@ -7,14 +7,14 @@ class Layout extends Component {
       <div>
         <AuthProvider>
           <AuthContext>
-            {authContext => {
+            { authContext => {
               return (
-                <Tab>{authContext.isAuth? 'Add Product / View Profile' : 'Login / Register'}</Tab>
+                <Tab>{ authContext.isAuth? 'Add Product / View Profile' : 'Login / Register' }</Tab>
               );
             }}
           </AuthContext>
         </AuthProvider>
-        {this.props.children}
+        { this.props.children }
       </div>
     )
   }

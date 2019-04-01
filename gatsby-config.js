@@ -9,7 +9,15 @@ module.exports = {
   },
   developMiddleware: app => {
     app.use(
-      '/',
+      '/api',
+      proxy({
+        target: process.env.API_URL || '/',
+        changeOrigin: true,
+        secure: false,
+      })
+    );
+    app.use(
+      '/admin',
       proxy({
         target: process.env.API_URL || '/',
         changeOrigin: true,

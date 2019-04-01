@@ -14,12 +14,12 @@ const Product = ({
   onChange,
 }) => (
   <div
-    onClick={onSelect}
-    className={isSelected ? 'productcomponent is-selected' : 'productcomponent'}
+    onClick={ onSelect }
+    className={ isSelected ? 'productcomponent is-selected' : 'productcomponent' }
   >
-    <img src={image} />
-    <h3>{title}</h3>
-    <p>{description}</p>
+    <img src={ image } />
+    <h3>{ title }</h3>
+    <p>{ description }</p>
   </div>
 );
 

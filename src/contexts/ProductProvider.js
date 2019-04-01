@@ -64,7 +64,7 @@ export class ProductProvider extends React.Component {
           onBuy: this.onBuy,
         }}
       >
-        {this.props.children}
+        { this.props.children }
       </ProductContext.Provider>
     );
   }

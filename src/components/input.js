@@ -4,12 +4,12 @@ import './styles.css';
 
 const Input = ({ value, onChange, label, error, type }) => (
   <div className="input">
-    <p>{label}</p>
+    <p>{ label }</p>
     <input
-      type={type}
-      placeholder={label}
-      value={value}
-      onChange={e => onChange(e.target.value)}
+      type={ type }
+      placeholder={ label }
+      value={ value }
+      onChange={ e => onChange(e.target.value) }
     />
   </div>
 );
