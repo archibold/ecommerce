@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { AuthProvider } from '../contexts/AuthProvider';
 import Login from '../containers/Login';
 
-const IndexPage = () => (
+const AddProductPage = () => (
   <div>
-    <Login />
+    <AuthProvider>
+      <Login />
+    </AuthProvider>
   </div>
 );
 
-export default IndexPage;
+export default AddProductPage;

@@ -21,7 +21,7 @@ export class AuthProvider extends React.Component {
       .then(() => this.setState({ isAuth: true }));
   }
 
-  onLogout() { 
+  onLogout() {
     logout()
       .then(() => this.setState({ isAuth: false }));
   }
@@ -36,7 +36,7 @@ export class AuthProvider extends React.Component {
           onLogout: logout,
         }}
       >
-        {this.props.children}
+        { this.props.children }
       </AuthContext.Provider>
     );
   }

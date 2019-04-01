@@ -27,7 +27,7 @@ class Login extends Component {
       <AuthContext.Consumer>
         { authContext => {
           //TODO: don't need to navigate
-          if (authContext.isAuth) navigate('/');
+          if (authContext && authContext.isAuth) navigate('/');
 
           return (
             <div>
