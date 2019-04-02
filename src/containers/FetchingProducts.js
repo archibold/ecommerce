@@ -55,4 +55,4 @@ class FetchingExample extends Component {
 //     {context.transactionError && <div>{context.transactionError}</div>}
 //   </div>
 // )}
-export default FetchingExample
+export default FetchingExample;

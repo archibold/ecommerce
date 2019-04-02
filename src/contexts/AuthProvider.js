@@ -1,11 +1,12 @@
 import React from 'react';
-import { isAuth, login, logout } from '../service/login-service';
+import { isAuth, login, logout, register } from '../service/login-service';
 
 export const AuthContext = React.createContext();
 
 export class AuthProvider extends React.Component {
   state = {
     isAuth: false,
+    isRegistred: false,
     errorMessage: null,
   }
 
@@ -16,14 +17,19 @@ export class AuthProvider extends React.Component {
       .then(isAuth => this.setState({ isAuth }));
   }
 
-  onLogin(email, password) {
+  onLogin = (email, password)  => {
     login(email, password)
       .then(() => this.setState({ isAuth: true }));
   }
 
-  onLogout() {
+  onLogout = () => {
     logout()
-      .then(() => this.setState({ isAuth: false }));
+      .then(() => this.setState({ isAuth: false, isRegistred: false }));
+  }
+
+  onRegister = (email, password) => {
+    register(email, password)
+      .then(() => this.setState({ isRegistred: true }));
   }
 
   render() {
@@ -32,8 +38,9 @@ export class AuthProvider extends React.Component {
         value={{
           isAuth: this.state.isAuth,
           errorMessage: this.state.errorMessage,
-          onLogin: login,
-          onLogout: logout,
+          onLogin: this.onLogin,
+          onLogout: this.onLogout,
+          onRegister: this.onRegister,
         }}
       >
         { this.props.children }

@@ -18,18 +18,44 @@ export const login = (email, password) => {
 
   return axios.post(url + '/admin/login', loginInfo)
     .then(response => {
-      return true;
+      return new Promise(function(resolve, reject) {
+        resolve(response);
+      });
     }).catch(error => {
-      return false;
+      return new Promise(function(resolve, reject) {
+        reject(error);
+      });
+    });
+}
+
+export const register = (email, password) => {
+  const registerInfo = {
+    email,
+    password,
+  };
+
+  return axios.post(url + '/admin/register', registerInfo)
+    .then(response => {
+      return new Promise(function(resolve, reject) {
+        resolve(response);
+      });
+    }).catch(error => {
+      return new Promise(function(resolve, reject) {
+        reject(error);
+      });
     });
 }
 
 export const logout = () => {
   return axios.get(url + '/admin/logout')
     .then(response => {
-      return true;
+      return new Promise(function(resolve, reject) {
+        resolve(true);
+      });
     }).catch(error => {
-      return false;
+      return new Promise(function(resolve, reject) {
+        reject(error);
+      });
     });
 }
 
