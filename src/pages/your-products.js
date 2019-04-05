@@ -1,6 +1,8 @@
 import React from 'react';
 import { AuthContext } from '../contexts/AuthProvider';
+import { UserProductProvider } from '../contexts/UserProductProvider';
 import Login from '../containers/Login';
+import UserProducts from '../containers/UserProducts';
 
 const AddProductPage = () => (
   <div>
@@ -9,7 +11,11 @@ const AddProductPage = () => (
         if (!authContext.isAuth) return <Login onLogin={authContext.onLogin}/>
 
         return (
-          <div>Logged in...</div>
+          <div>
+            <UserProductProvider>
+              <UserProducts />
+            </UserProductProvider>
+          </div>
         );
       }}
     </AuthContext.Consumer>
