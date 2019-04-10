@@ -12,16 +12,16 @@ class Layout extends Component {
               return (
                 <Tab>
                   { authContext.isAuth &&
-                    <div>
+                    <React.Fragment>
                       <Link to='/your-products'>Your Products</Link>
                       <Link to='/your-profile'>Your Profile</Link>
                       <Link to='/#' onClick={authContext.onLogout}>Logout</Link>
-                    </div> }
+                    </React.Fragment> }
                   { !authContext.isAuth &&
-                    <div>
+                    <React.Fragment>
                       <Link to='/sign-in'>Login</Link>
                       <Link to='/sign-up'>Register</Link>
-                    </div> }
+                    </React.Fragment> }
                 </Tab>
               );
             }}

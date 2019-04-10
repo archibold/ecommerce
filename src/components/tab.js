@@ -4,9 +4,12 @@ import fire from '../images/fire.svg';
 const Tab = ({ children }) => {
   return (
     <div className="tab-container">
-      <img src={ fire } height={ 50 }/> <Link to='/'>Shop</Link>
+        <Link to='/' className="tab-logo"></Link>
         <div className="tab-action">
-          { children }
+          <button className="tab-menu"></button>
+          <div className="tab-links">
+            { children }
+          </div>
         </div>
     </div>
   );
