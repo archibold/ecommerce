@@ -8,22 +8,48 @@ module.exports = {
     title: 'ecommerce',
   },
   developMiddleware: app => {
-    app.use(
-      '/api',
-      proxy({
-        target: process.env.API_URL || '/',
-        changeOrigin: true,
-        secure: false,
-      })
-    );
-    app.use(
-      '/admin',
-      proxy({
-        target: process.env.API_URL || '/',
-        changeOrigin: true,
-        secure: false,
-      })
-    );
+    if (process.env.API_URL) {
+      app.use(
+        '/api',
+        proxy({
+          target: process.env.API_URL || '/',
+          changeOrigin: true,
+          secure: false,
+        })
+      );
+      app.use(
+        '/admin',
+        proxy({
+          target: process.env.API_URL || '/',
+          changeOrigin: true,
+          secure: false,
+        })
+      );
+    } else {
+      app.use(
+        '/api',
+        proxy({
+          target: '/',
+          changeOrigin: true,
+          secure: false,
+          router: {
+            'localhost:8000': 'http://localhost:5000'
+          }
+        })
+      );
+      app.use(
+        '/admin',
+        proxy({
+          target: '/',
+          changeOrigin: true,
+          secure: false,
+          router: {
+            'localhost:8000': 'http://localhost:5000'
+          }
+        })
+      );
+    }
+
   },
   plugins: [
     'gatsby-plugin-react-helmet',

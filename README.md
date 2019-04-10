@@ -8,7 +8,8 @@
 ## environment variables
 use `.env.development` for set development environment variable or `.env.production` for production.
 
-set a firebase and API url
+set a ecommerce api url if you want to use remote server.
+If you want to use local server DON'T use this env.
 
 ```
 API_URL=
